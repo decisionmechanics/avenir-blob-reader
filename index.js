@@ -50,6 +50,16 @@ async function main() {
     console.log(blobContent);
     console.log("----------");
   }
+
+  const EXTRA_QUOTE =
+    "Always code as if the guy who ends up maintaining your code will be a violent psychopath who knows where you live.";
+
+  const blobClient = containerClient.getBlockBlobClient("new_quote.txt");
+
+  const uploadBlobResponse = await blobClient.upload(
+    EXTRA_QUOTE,
+    EXTRA_QUOTE.length
+  );
 }
 
 main()
